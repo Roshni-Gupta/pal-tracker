@@ -21,7 +21,7 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 @SpringBootTest(classes = PalTrackerApplication.class, webEnvironment = RANDOM_PORT)
 public class HealthApiTest {
 
-    @LocalServerPort
+   @LocalServerPort
     private String port;
     private TestRestTemplate restTemplate;
 
@@ -37,8 +37,6 @@ public class HealthApiTest {
     @Test
     public void healthTest() {
         ResponseEntity<String> response = this.restTemplate.getForEntity("/actuator/health", String.class);
-
-
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
 
         DocumentContext healthJson = parse(response.getBody());

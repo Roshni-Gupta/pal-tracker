@@ -15,18 +15,20 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
+import javax.sql.DataSource;
+
 @EnableConfigurationProperties
 @SpringBootApplication
 public class PalTrackerApplication {
-    @Value("${spring.datasource.url}")
-    DriverManagerDataSource dataSource;
+    //@Value("${spring.datasource.url}")
+   // DriverManagerDataSource dataSource;
 
     public static void main(String[] args) {
         SpringApplication.run(PalTrackerApplication.class, args);
     }
 
     @Bean
-    TimeEntryRepository timeEntryRepository() {
+    TimeEntryRepository timeEntryRepository(DataSource dataSource) {
         return new JdbcTimeEntryRepository(dataSource);
     }
 
