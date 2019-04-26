@@ -3,7 +3,7 @@ applications:
   - name: pal-tracker-roshni
     path: build/libs/pal-tracker.jar
     routes:
-      - route: pal-tracker-roshni.apps.dev.pcf-aws.com
+      - route: pal-tracker-roshni.cfapps.io
     env:
       WELCOME_MESSAGE: Hello from the review environment
       JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
